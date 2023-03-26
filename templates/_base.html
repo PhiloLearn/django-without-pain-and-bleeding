@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url "home" %}">PhiloLEarn</a>
+      <a class="navbar-brand" href="{% url "home" %}">PhiloLearn</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,14 +28,14 @@
           </li>
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url "logout" %}">log out</a>
+              <a class="nav-link active" aria-current="page" href="{% url "account_logout" %}">log out</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url "login" %}">login</a>
+              <a class="nav-link active" aria-current="page" href="{% url "account_login" %}">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url "signup" %}">sign up</a>
+              <a class="nav-link active" aria-current="page" href="{% url "account_signup" %}">sign up</a>
             </li>
 
           {% endif %}
