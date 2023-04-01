@@ -33,33 +33,25 @@ class CustomeUserTest(TestCase):
 
 
 class SignupTest(TestCase):
+    username = 'newuser'
+    email = 'newuser@mail.com'
+
     def setUp(self):
-        url = reverse('signup')
+        url = reverse('account_signup')
         self.response = self.client.get(url)
 
     # --- urls ----
-    def test_signup_url_exist_at_correct_loacation(self):
+    def test_signup_template(self):
         self.assertEqual(self.response.status_code, 200)
-
-    # --- templates ---
-    def test_signup_template_used(self):
-        self.assertTemplateUsed(self.response, 'registration/signup.html')
-
-    def test_signup_contains_correct_html(self):
+        self.assertTemplateUsed(self.response, 'account/signup.html')
         self.assertContains(self.response, 'signup')
-    
-    def test_singup_does_not_contains_incorrect_html(self):
         self.assertNotContains(self.response, 'hi there! something is wrong.')
 
-    # --- form ---
-    def test_singup_form(self):
-        form = self.response.context.get('form')
-        self.assertIsInstance(form, CustomUserCreationForm)
-        self.assertContains(self.response, 'csrfmiddlewaretoken')
+    def test_signup_form(self):
+        newuser = get_user_model().objects.create_user(self.username, self.email)
+        self.assertEqual(get_user_model().objects.all().count(), 1)
+        self.assertEqual(get_user_model().objects.all()[0].username, self.username)
+        self.assertEqual(get_user_model().objects.all()[0].email, self.email)
 
-    # --- view ---
-    def test_singup_url_resolve_signupview(self):
-        view = resolve('/')
-        self.assertEqual(view.func.__name__, SignupView.as_view().__name__)
 
 
