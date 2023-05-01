@@ -3,7 +3,7 @@ Django==4.0.9
 mirror==0.8.2
 psycopg2-binary==2.9.3
 sqlparse==0.4.3
-python-decouple==3.7
 django-crispy-forms==2.0
 crispy-bootstrap5==0.7
-django-allauth==0.50.
+django-allauth==0.50.0
+environs[django]==9.5.0 
