@@ -7,6 +7,6 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 COPY ./requirements.txt .
-RUN pip install --trusted-host https://pypi.tuna.tsinghua.edu.cn -i https://pypi.tuna.tsinghua.edu.cn/simple/ -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .

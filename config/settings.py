@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'blog.apps.BlogConfig',
 
 ]
 
