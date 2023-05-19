@@ -166,9 +166,19 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.SMTP.EmailBackend'
+
+EMAIL_HOST = "" 
+EMAIL_PORT = ""
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_TLS = ""
+EMAIL_USE_SSL = ""
+
+
+DEFAULT_FROM_EMAIL = "admin@PhiloLearn.ir"
 
 ACCOUNT_SESSION_REMEMBER = True
 

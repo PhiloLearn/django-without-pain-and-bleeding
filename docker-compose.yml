@@ -13,6 +13,7 @@ services:
         environment:
             - "DJANGO_SECRET_KEY=django-insecure-s%*$422fne^66-p3txr)67ee&s4m3h&+@%p2n&wd#%dm7q9k2&"
             - "DJANGO_DEBUG=True"
+            - "EMAIL_HOST_PASSWORD="
     
     db:
         image: postgres
